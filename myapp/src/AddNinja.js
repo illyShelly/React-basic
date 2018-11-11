@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import App from './App';
 
 class AddNinja extends Component {
   state = {
@@ -16,7 +17,9 @@ class AddNinja extends Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    // we pass fce addNinja fce in App.js line 17
+    this.props.addNinja(this.state);
+    // console.log(this.state);
   }
   render() {
     return (

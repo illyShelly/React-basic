@@ -13,6 +13,22 @@ class App extends Component {
       { name: '', age: 20, belt: 'pink', id: 3 }
     ]
   }
+  // create function to push the data from AddNinja state to array; arrow fce with parameter - that new Ninja - object like this e.x.: { name: 'Ryu', age: 30, belt: 'black', id: 1 }
+  addNinja = (objectnewninja) => {
+    // line 19 from AddNinja.js - props goes as parameter
+    // console.log(ninja);
+    objectnewninja.id = Math.floor(Math.random());
+    // add new ninja with id to the state
+      // this line will change the state directly without using setState method - bad practice
+    // this.ninjas.push(ninja);
+    // using SPREAD OPERATOR - create new updated ABOVE array + parameter ninja from fce
+    let newninjas = [...this.state.ninjas, objectnewninja]
+    this.setState({
+      // ninjas key with value of new array newninjas
+      ninjas: newninjas
+    })
+
+  }
   render() {
     return (
       <div className="App">
@@ -20,7 +36,8 @@ class App extends Component {
         <p>Welcome ;)</p>
         <Ninjas ninjas={ this.state.ninjas }/>
         {/* add new file AddNinja.js component */}
-        <AddNinja />
+        {/* is called from AddNinja.js handleSubmit fce */}
+        <AddNinja addNinja={ this.addNinja }/>
       </div>
     );
   }
