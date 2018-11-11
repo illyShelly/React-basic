@@ -18,39 +18,31 @@
           name: 'Ryu',
           age: 30
         }
-        handleClick = (event) => {
-          // console.log(event.target);
-          // this.state - couldn't work because of scope and defined even underneath <p>
-            // SOLUTION: arrow function
-          // UPDATE state
-            // this.state.name = 'Yoshi'; bad practice to do directly
+        // we call event if input change (is writen there)
+        // we change state by setState
+        // this event using target this field taking its value
+        handleChange = (event) => {
           this.setState( {
-            name: 'Yoshi',
-            age: 25
-          })
-          console.log(this.state);
+            name: event.target.value
+          });
         }
-        handleMouseOver = (event) => {
-          // to get where was mouved and x position
-          console.log(event.target, event.pageX);
-        }
-        handleCopy = (event) => {
-          console.log("Try being original");
+        // we need to submit content by enter or button
+          //button onClick={} is not enough
+          // we want to capture enter call it for form def fce
+          // default event behavior is when submit refresh page
+        handleSubmit = (event) => {
+          // prevent default behavior - refresh page
+          event.preventDefault();
+          console.log('form submitted', this.state.name);
         }
         render() {
           return(
-						// JS6 template will be return
-            // just 1 root element - here div
-            // then multiple times inner element (child of this div)
-            // I CANNOT USE CLASS KEYWORD => CLASSNAME instead
-            // onclick - not invoke it immediately so without ()
-            // this. refers to the component -where is stored 
 						<div className="app-content">
-							<h1>Hey, Illy</h1>
-              <p>My name is: <strong> { this.state.name} </strong>and I am <strong>{ this.state.age }</strong></p>
-              <button onClick={ this.handleClick }>Click me</button>
-              <button onMouseOver={ this.handleMouseOver }>Hover me</button>
-              <p onCopy={ this.handleCopy }>WHAT WE THINK, WE BECOME.</p>
+							<h1>Hey, my name is: { this.state.name }</h1>
+              <form onSubmit={ this.handleSubmit }>
+                <input type="text" onChange={ this.handleChange }/>
+                <button>Submit</button>
+              </form>
 						</div>
 					)
         }
