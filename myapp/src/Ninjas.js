@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // now we import React so its not React.create.Component...
 // promps pass data from parent component to child component(app.js to Ninjas.js)
-class Ninjas extends Component {
-    render() {
-        // props inside render method
-        // {name: "Ryu", age: "30", belt: "black"}
-        // console.log(this.props);
-        // const { name, age, belt} = this.props;
-            // this.props.name putting to div instead
+// WE do not need CLASS COMPONENT when does not have its STATE, receives data from props container component App.js
+// so we turn to FUNCTIONAL COMPONENT - UI interest us
+    //do not need render method-just for class based component, just JS6
+    // run error undefined - it not passed ARGUMENT to reach all the props
+    // do not need KEYWORD.this
+    // can pass {ninjas} as parameter instead const = props;
+const Ninjas = ({ ninjas }) => {
         // storing array name ninjas in const
-        const { ninjas } = this.props;
-        // const ninjas = this.props.ninjas; the same
+        // const { ninjas } = props;
         // using map array
         const ninjaList = ninjas.map(ninja => {
             return (
@@ -28,7 +27,6 @@ class Ninjas extends Component {
                 { ninjaList }
             </div>
         )
-    }
 }
 
 export default Ninjas;
