@@ -2,7 +2,9 @@ import React from 'react';
 
 // FUNCTIONAL COMPONENT - UI interest us
     // can pass {ninjas} as parameter instead const { ninjas }= props;
-const Ninjas = ({ ninjas }) => {
+// added new prop to component - deleteNinja
+    // add button for that
+const Ninjas = ({ ninjas, deleteNinja }) => {
     const ninjaList = ninjas.map(ninja => {
         if(ninja.age > 20) {
             return (
@@ -11,6 +13,8 @@ const Ninjas = ({ ninjas }) => {
                 <div>Name: { ninja.name }</div>
                 <div>Age: { ninja.age }</div>
                 <div>Belt: { ninja.belt }</div>
+                {/* to not invoke with param this fce we use anonymous fce double {} */}
+                <button onClick={() => { deleteNinja(ninja.id)} }>Delete ninja</button>
                 </div>
             )
         } else {

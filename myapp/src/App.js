@@ -17,7 +17,7 @@ class App extends Component {
   addNinja = (objectnewninja) => {
     // line 19 from AddNinja.js - props goes as parameter
     // console.log(ninja);
-    objectnewninja.id = Math.floor(Math.random());
+    objectnewninja.id = Math.random();
     // add new ninja with id to the state
       // this line will change the state directly without using setState method - bad practice
     // this.ninjas.push(ninja);
@@ -27,14 +27,28 @@ class App extends Component {
       // ninjas key with value of new array newninjas
       ninjas: newninjas
     })
-
+  }
+  // we want pass that fce as prop to the Ninjas component
+  // we want this fce fire to this component
+  // the prop will be deleteNinja={this.deleteninja} line 42
+  deleteNinja = (id) => {
+    // console.log(id);
+    // filter certain items creating new array
+    let ninjasId = this.state.ninjas.filter(ninja => {
+      // value is true or false - is param id equal to ninjas id
+      // if is true that id are different - stay in new array
+      return ninja.id !== id
+    });
+    this.setState({
+      ninjas: ninjasId
+    })
   }
   render() {
     return (
       <div className="App">
         <h1>My First React app!</h1>
         <p>Welcome ;)</p>
-        <Ninjas ninjas={ this.state.ninjas }/>
+        <Ninjas deleteNinja={ this.deleteNinja } ninjas={ this.state.ninjas }/>
         {/* add new file AddNinja.js component */}
         {/* is called from AddNinja.js handleSubmit fce */}
         <AddNinja addNinja={ this.addNinja }/>
