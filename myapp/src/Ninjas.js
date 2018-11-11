@@ -1,4 +1,5 @@
 import React from 'react';
+import './Ninjas.css'
 
 // FUNCTIONAL COMPONENT - UI interest us
     // can pass {ninjas} as parameter instead const { ninjas }= props;

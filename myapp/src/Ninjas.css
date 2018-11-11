@@ -1,0 +1,9 @@
+body {
+  background: #a4c7c3;
+}
+
+/* this apprear just in ninjas.js */
+.ninjas form {
+  background: white;
+  padding: 20px;
+}

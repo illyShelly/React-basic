@@ -17,7 +17,7 @@ class AddNinja extends Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
-    // we pass fce addNinja fce in App.js line 17
+    // we pass fce have access to addNinja fce in App.js line 17
     this.props.addNinja(this.state);
     // console.log(this.state);
   }
