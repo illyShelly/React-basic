@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import './App.css';
 import Ninjas from './Ninjas';
+import AddNinja from './AddNinja';
+// added AddNinja.js
 
 class App extends Component {
   state = {
@@ -16,14 +18,17 @@ class App extends Component {
       <div className="App">
         <h1>My First React app!</h1>
         <p>Welcome ;)</p>
-        {/* nesting component Ninjas */}
-        {/* creating props and passing to child component Ninjas.js */}
-        {/* creating state object and passing property props */}
-        {/* referencing ninjas array of props */}
         <Ninjas ninjas={ this.state.ninjas }/>
+        {/* add new file AddNinja.js component */}
+        <AddNinja />
       </div>
     );
   }
 }
 
 export default App;
+
+// nesting component Ninjas
+// creating props and passing to child component Ninjas.js
+// creating state object and passing property props
+// referencing ninjas array of props
