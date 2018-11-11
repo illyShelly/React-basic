@@ -3,6 +3,14 @@ import React, { Component } from 'react';
 import Ninjas from './Ninjas';
 
 class App extends Component {
+  state = {
+    // passing array of ninjas - of objects
+    ninjas: [
+      { name: 'Ryu', age: 30, belt: 'black', id: 1 },
+      { name: 'Yoshi', age: 25, belt: 'green', id: 2 },
+      { name: '', age: 20, belt: 'pink', id: 3 }
+    ]
+  }
   render() {
     return (
       <div className="App">
@@ -10,8 +18,9 @@ class App extends Component {
         <p>Welcome ;)</p>
         {/* nesting component Ninjas */}
         {/* creating props and passing to child component Ninjas.js */}
-        <Ninjas name="Ryu" age="30" belt="black"/>
-        <Ninjas name="Yoshi" age="28" belt="green"/>
+        {/* creating state object and passing property props */}
+        {/* referencing ninjas array of props */}
+        <Ninjas ninjas={ this.state.ninjas }/>
       </div>
     );
   }
