@@ -23,7 +23,7 @@ class AddNinja extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="form-add">
         {/* onSubmit - grab enter and button press */}
         {/* do not forget KEYWORD this */}
         <form onSubmit={ this.handleSubmit}>

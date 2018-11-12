@@ -3,7 +3,36 @@ body {
 }
 
 /* this apprear just in ninjas.js */
-.ninjas form {
+ form {
   background: white;
   padding: 20px;
+}
+
+label {
+  padding: 20px;
+}
+
+button {
+  padding: 4px;
+  margin-left: 5px;
+}
+.ninja-list {
+  flex-direction: column;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ninja {
+  display: inline-flex;
+  padding-bottom: 20px;
+}
+.ninja-item {
+  padding-right: 20px;
+}
+
+.form-add {
+  display: flex;
+  justify-content: center;
 }

@@ -11,9 +11,9 @@ const Ninjas = ({ ninjas, deleteNinja }) => {
             return (
                 // adding key as id of each Ninja
                 <div className="ninja" key={ ninja.id}>
-                <div>Name: { ninja.name }</div>
-                <div>Age: { ninja.age }</div>
-                <div>Belt: { ninja.belt }</div>
+                <div className="ninja-item">Name: { ninja.name }</div>
+                <div className="ninja-item">Age: { ninja.age }</div>
+                <div className="ninja-item">Belt: { ninja.belt }</div>
                 {/* to not invoke with param this fce we use anonymous fce double {} */}
                 <button onClick={() => { deleteNinja(ninja.id)} }>Delete ninja</button>
                 </div>
